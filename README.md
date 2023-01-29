@@ -113,9 +113,46 @@ reboot
 - 上面步骤一解锁了路由SSH连接之后，现在我们就需要配置路由器科学上网了；
 - **注意：** 需提前准备科学上面的订阅地址或者连接地址
 
+### 1、安装Clash
+```shell
+## Clash安装源：
+export url='https://cdn.jsdelivr.net/gh/juewuy/ShellClash@master' && sh -c "$(curl -kfsSl $url/install.sh)" && source /etc/profile &> /dev/null
+
+## 备用安装源：
+（1）export url='https://raw.fastgit.org/juewuy/ShellClash/master' && sh -c "$(curl -kfsSl $url/install.sh)" && source /etc/profile &> /dev/null
+
+（2）export url='https://fastly.jsdelivr.net/gh/juewuy/ShellClash@master' && sh -c "$(curl -kfsSl $url/install.sh)" && source /etc/profile &> /dev/null
+```
+
+- 通过XShell连接到路由器，执行上面的命令进行安装
+```shell
+export url='https://cdn.jsdelivr.net/gh/juewuy/ShellClash@master' && sh -c "$(curl -kfsSl $url/install.sh)" && source /etc/profile &> /dev/null
+```
+> ![image](https://user-images.githubusercontent.com/42825450/215307524-9965ca83-d5fc-44b1-9aa0-bbda738ffde2.png)
+
+### 2、配置科学上网
+> ![image](https://user-images.githubusercontent.com/42825450/215307586-69bb5f34-f581-4556-9227-49fa6d4fd62d.png)
+> ![image](https://user-images.githubusercontent.com/42825450/215307591-40f46c61-8d80-4bd3-a603-a1a97e7ec08d.png)
+> ![image](https://user-images.githubusercontent.com/42825450/215307597-e38ff197-4a4b-4ccb-8ec2-73f4ddeec5bf.png)
+> ![image](https://user-images.githubusercontent.com/42825450/215307603-2b5a9390-211a-4720-a832-609436d13ef3.png)
+> ![image](https://user-images.githubusercontent.com/42825450/215307614-b1930c8c-587b-451c-ba31-ffc15c55913b.png)
 
 
+### 3、访问管理面板
+- 浏览器访问地址为：http://192.168.31.1:9999/ui/
+> ![image](https://user-images.githubusercontent.com/42825450/215307636-324a7938-9f55-4351-8946-1c718ae74d94.png)
 
+### 4、访问外网测试
+- 现在访问Google和YouTube测试
+> ![image](https://user-images.githubusercontent.com/42825450/215307656-3b48a90c-dc84-409f-8deb-696bcc3e00ed.png)
+> ![image](https://user-images.githubusercontent.com/42825450/215307659-cd41204f-edcd-4873-b245-d9cb1f17877c.png)
 
+### 5、clash功能设置
+> ![image](https://user-images.githubusercontent.com/42825450/215307670-2658ac9a-edbc-46f7-9608-aaa3dbb5c6bc.png)
+![image](https://user-images.githubusercontent.com/42825450/215307674-398712f2-2805-4d46-aa7b-b8ca528d15ce.png)
+![image](https://user-images.githubusercontent.com/42825450/215307679-73be6a5c-973e-47d4-936f-19b0b177411b.png)
+![image](https://user-images.githubusercontent.com/42825450/215307680-002889a8-40b8-43ee-98d4-166541c4ce1f.png)
+![image](https://user-images.githubusercontent.com/42825450/215307682-0ae03c61-c35d-4744-b266-5da38f3171c1.png)
 
-
+### 6、Clash开机启动
+> ![image](https://user-images.githubusercontent.com/42825450/215307712-6cfb0f07-f8f2-46b9-9e40-65a37eb84aaa.png)
