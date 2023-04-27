@@ -156,3 +156,5 @@ export url='https://cdn.jsdelivr.net/gh/juewuy/ShellClash@master' && sh -c "$(cu
 
 ### 6、Clash开机启动
 > ![image](https://user-images.githubusercontent.com/42825450/215307712-6cfb0f07-f8f2-46b9-9e40-65a37eb84aaa.png)
+
+> 以上就是所有的操作步骤
