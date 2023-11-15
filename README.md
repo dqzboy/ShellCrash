@@ -157,4 +157,19 @@ export url='https://cdn.jsdelivr.net/gh/juewuy/ShellClash@master' && sh -c "$(cu
 ### 6、Clash开机启动
 > ![image](https://user-images.githubusercontent.com/42825450/215307712-6cfb0f07-f8f2-46b9-9e40-65a37eb84aaa.png)
 
+### 7、自定义规则
+```bash
+cd /data/clash/yamls/
+# 添加自定义规则
+vi rules.yaml
+```
+
+如 chatgpt(注意前面有空格)
+```yaml
+ - DOMAIN-SUFFIX,openai.com,🚀 节点选择
+ - DOMAIN-SUFFIX,chatgpt.com,🚀 节点选择
+ - DOMAIN-SUFFIX,statsig.com,🚀 节点选择
+ - DOMAIN-SUFFIX,ingest.com,🚀 节点选择
+ - DOMAIN-SUFFIX,revenuecat.com,🚀 节点选择
+```
 > 以上就是所有的操作步骤
