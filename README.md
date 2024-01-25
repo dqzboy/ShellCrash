@@ -113,7 +113,38 @@ reboot
 - 上面步骤一解锁了路由SSH连接之后，现在我们就需要配置路由器科学上网了；
 - **注意：** 需提前准备科学上面的订阅地址或者连接地址
 
-### 1、安装Clash
+### 1、安装前设备环境检查
+- 主要是检查设备是否安装了iptables以及加载了对应的模块，不然你部署的时候只能使用环境变量在配置clash代理了！
+
+#### (1) 确保系统上已安装了 iptables 或者nftables，以及加载了必要的 iptables模块。你可以通过运行以下命令检查：
+```shell
+# iptables 模式
+command -v iptables
+lsmod | grep '^xt_owner'
+ 
+# nftables 模式
+command -v nft
+```
+
+#### (2) 如果 `lsmod | grep '^xt_owner'` 为空，说明在内核中没有加载 `xt_owner` 模块，这可能导致 iptables 的某些功能不可用。首先，确保 iptables 软件包已正确安装。
+```shell
+sudo apt-get update
+sudo apt-get install iptables
+
+# 加载 xt_owner 模块： 手动加载 xt_owner 模块，可以使用 modprobe 命令：
+sudo modprobe xt_owner
+# 再次检查 xt_owner 是否加载
+lsmod | grep '^xt_owner'
+```
+> 说明：如果 xt_owner 模块不可用，可能是因为系统内核没有相应的模块。在某些系统中，该模块可能已经被包含在内核中，而在其他系统中，你可能需要重新编译内核或安装额外的内核模块。
+
+#### (3) 如果 command -v nft 返回为空，表示在系统中找不到 nft 命令。这可能是因为 nft 工具没有被正确安装或者安装路径不在系统的可执行路径中。以下是一些解决方法：
+```shell
+sudo apt-get update
+sudo apt-get install nftables
+```
+
+### 2、安装Clash
 ```shell
 ## Clash安装源：
 export url='https://cdn.jsdelivr.net/gh/juewuy/ShellClash@master' && sh -c "$(curl -kfsSl $url/install.sh)" && source /etc/profile &> /dev/null
